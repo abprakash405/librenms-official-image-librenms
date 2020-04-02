@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: librenms
+  labels:
+    app: librenms
+spec:
+  type: LoadBalancer
+  ports:
+    - name: http
+      port: 31971
+      targetPort: 31971
+    - name: nginx
+      port: 8000
+      targetPort: 8000
+  selector:
+    app: librenms
